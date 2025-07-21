@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>>HelixCloud - Best Paid Hosting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #0f0f1d;
+      color: #ffffff;
+    }
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: radial-gradient(circle at center, rgba(15,15,29,0.9) 60%, rgba(63,198,241,0.08) 80%, rgba(224,138,255,0.08) 100%);
+      border-bottom: 1px solid #1e1e2e;
+      backdrop-filter: blur(10px);
+      z-index: 999;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #3fc6f1, #e08aff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    nav {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+    }
+    nav a {
+      position: relative;
+      text-decoration: none;
+      color: #bbb;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      color: #fff;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -4px;
+      transform: translateX(-50%) scaleX(0);
+      transform-origin: center;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, #3fc6f1, #e08aff);
+      border-radius: 5px;
+      transition: transform 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+    nav a:hover::after,
+    nav a.active::after {
+      transform: translateX(-50%) scaleX(1);
+      opacity: 1;
+    }
+    .nav-discord {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .discord-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      background: linear-gradient(to right, #3fc6f1, #e08aff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: opacity 0.3s ease;
+    }
+    .discord-link i {
+      font-size: 1.1rem;
+    }
+    .discord-link:hover {
+      opacity: 0.8;
+    }
+    .hero {
+      padding: 160px 20px 100px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      animation: fadeIn 1.2s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+    }
+    .hero-text h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #3fc6f1, #e08aff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      animation: fadeIn 1.2s ease-out;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      color: linear-gradient(to right, #6feaff, #f7a6ff);
+      margin-bottom: 30px;
+      animation: fadeIn 1.2s ease-out;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      animation: fadeIn 1.2s ease-out;
+    }
+    .hero-buttons a {
+      padding: 10px 18px;
+      border: 1px solid #3fc6f1;
+      border-radius: 8px;
+      color: #6feaff;
+      text-decoration: none;
+      font-weight: 500;
+      background-color: transparent;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .terminal {
+      background: rgba(21, 21, 37, 0.6);
+      border-radius: 12px;
+      padding: 28px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.06);
+      animation: fadeIn 1.2s ease-out;
+    }
+    .terminal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .dots {
+      display: flex;
+      gap: 8px;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .red { background: #ff5f56; }
+    .yellow { background: #ffbd2e; }
+    .green { background: #27c93f; }
+    .terminal-header .title {
+      font-weight: 600;
+      color: #3fc6f1;
+    }
+    .terminal-body {
+      font-family: monospace;
+      color: #8bd5ff;
+      overflow: hidden;
+      white-space: pre-line;
+      min-height: 100px;
+    }
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.founders {
+  padding: 100px 20px;
+  text-align: center;
+  animation: fadeUp 1.2s ease-out both;
+}
+
+.founders-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #3fc6f1, #e08aff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.founders-subtext {
+  color: linear-gradient(to right, #6feaff, #f7a6ff);
+  font-size: 1rem;
+  margin-bottom: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.founders-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.founder-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 40px 30px;
+  width: 360px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.founder-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.founder-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 3px solid #3fc6f1;
+  box-shadow: 0 0 15px rgba(63, 198, 241, 0.4);
+  background: #0f0f1d;
+}
+
+.founder-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.role-badge {
+  font-size: 0.8rem;
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin: 10px 0;
+  background: linear-gradient(to right, #3fc6f1, #e08aff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  display: inline-block;
+}
+
+.founder-desc {
+  color: #bbb;
+  font-size: 0.95rem;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+.cta-section {
+  text-align: center;
+  padding: 100px 20px 15px;
+  background: #0f0f1d;
+  border-top: 1px solid #1e1e2e;
+  margin-top: 80px; /* spacing between founders and CTA */
+}
+
+.cta-heading {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.cta-subtext {
+  color: #aaa;
+  font-size: 1.05rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-btn.primary {
+  background: linear-gradient(to right, #3fc6f1, #e08aff);
+  color: #ffff;
+  border: none;
+}
+
+.cta-btn.primary:hover {
+  filter: brightness(1.1);
+}
+
+.cta-btn.secondary {
+  background: #1e1e2e;
+  color: #ddd;
+  border: 1px solid #333;
+}
+
+.cta-btn.secondary:hover {
+  background: #292938;
+}
+
+</style>
+
+</head>
+<body>
+  <header>
+    <div class="logo">HelixCloud</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="plans.html">Plans</a>
+      <a href="about.html" class="active">About</a>
+    </nav>
+    <div class="nav-discord">
+      <a href="https://discord.gg/57aMcmqNvW" class="discord-link"><i class="fab fa-discord"></i> Discord</a>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>We Are HelixCloud</h1>
+      <p>Our mission is to provide premium and free game server hosting solutions that are powerful, intuitive, and reliable.</p>
+      <div class="hero-buttons">
+        <a href="#"><i class="fas fa-cube"></i> Minecraft Hosting</a>
+        <a href="#"><i class="fas fa-robot"></i> Discord Bot Hosting</a>
+      </div>
+    </div>
+    <div class="terminal">
+      <div class="terminal-header">
+        <div class="dots">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+        </div>
+        <div class="title">HelixCloud Console</div>
+      </div>
+      <div class="terminal-body" id="terminalText"></div>
+    </div>
+  </section>
+ <section class="founders">
+    <h2 class="founders-heading">Meet Our Team</h2>
+    <p class="founders-subtext">HelixCloud was created by two passionate developers who wanted to revolutionize game server hosting.</p>
+    <div class="founders-grid">
+      <div class="founder-card">
+        <img src="https://github.com/helixcloud-01/Website_OpenSource/blob/main/lostdude.png?raw=true" alt="LostDude" class="founder-img">
+        <div class="founder-name">LostDude .</div>
+        <div class="role-badge">Founder</div>
+        <p class="founder-desc">A skilled developer with a strong background in server systems.
+Oversees architecture design and ensures top-tier performance.</p>
+      </div>
+      <div class="founder-card">
+        <img src="https://github.com/helixcloud-01/Website_OpenSource/blob/main/july.png?raw=true" alt="July" class="founder-img">
+        <div class="founder-name">°JÙLY</div>
+        <div class="role-badge">Founder</div>
+        <p class="founder-desc">Expert in VPS infrastructure and system scalability and focused on delivering reliable, secure, and high-speed hosting environments.</p>
+      </div>
+    </div>
+<section class="cta-section">
+  <h2 class="cta-heading">Ready to Join the Revolution?</h2>
+  <p class="cta-subtext">
+    Be among the first to experience our innovative hosting solutions. Sign up for<br />
+    launch notifications and early access opportunities.
+  </p>
+  <div class="cta-buttons">
+    <a href="plans.html" class="cta-btn primary"><i class="fas fa-server"></i> Explore Our Plans</a>
+    <a href="https://discord.gg/57aMcmqNvW" target="_blank" class="cta-btn secondary"><i class="fab fa-discord"></i> Contact Us</a>
+  </div>
+</section>
+  <script>
+    const terminalLines = [
+      "$ launching servers...",
+      "$ optimizing performance...",
+      "$ system ready"
+    ];
+
+    const terminal = document.getElementById("terminalText");
+    let lineIndex = 0;
+    let charIndex = 0;
+    let currentLine = "";
+
+    function typeLine() {
+      if (lineIndex >= terminalLines.length) return;
+      currentLine = terminalLines[lineIndex];
+      const interval = setInterval(() => {
+        terminal.innerHTML = terminal.innerHTML.replace(/<span class="cursor">.<\/span>/g, "");
+        terminal.innerHTML += currentLine[charIndex];
+        charIndex++;
+        terminal.innerHTML += '<span class="cursor">|</span>';
+        if (charIndex >= currentLine.length) {
+          clearInterval(interval);
+          terminal.innerHTML = terminal.innerHTML.replace(/<span class="cursor">.<\/span>/g, "") + "\n";
+          lineIndex++;
+          charIndex = 0;
+          setTimeout(typeLine, 500);
+        }
+      }, 50);
+    }
+    window.onload = () => typeLine();
+  </script>
+</body>
+</html>
